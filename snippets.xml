@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templateSet group="Custom C++ Snippets">
+
+    <!-- Print -->
+    <template name="sco" value="$INCLUDE$
+std::cout << $CURSOR$ << std::endl;" description="Quick std cout statement" toReformat="true" toShortenFQNames="true">
+        <variable name="INCLUDE" expression="completeSmartWithoutSemicolon()" defaultValue="#include &lt;iostream&gt;" alwaysStopAt="false" />
+        <context>
+            <option name="cpp" value="true" />
+        </context>
+    </template>
+
+    <template name="co" value="$INCLUDE$
+cout << $CURSOR$ << endl;" description="Quick cout statement" toReformat="true" toShortenFQNames="true">
+        <variable name="INCLUDE" expression="completeSmartWithoutSemicolon()" defaultValue="#include &lt;iostream&gt;" alwaysStopAt="false" />
+        <context>
+            <option name="cpp" value="true" />
+        </context>
+    </template>
+
+    <!-- Loops -->
+    <template name="rbfor" value="for (auto&amp; $ITEM$ : $CONTAINER$) {
+    $CURSOR$
+}" description="Range-based for loop" toReformat="true" toShortenFQNames="true">
+        <variable name="ITEM" expression="" defaultValue="item" alwaysStopAt="true" />
+        <variable name="CONTAINER" expression="" defaultValue="container" alwaysStopAt="true" />
+        <context>
+            <option name="cpp" value="true" />
+        </context>
+    </template>
+
+    <template name="for" value="for (int $INDEX$ = 0; $INDEX$ &lt; $LIMIT$; $INDEX$++) {
+    $CURSOR$
+}" description="Traditional for loop" toReformat="true" toShortenFQNames="true">
+        <variable name="INDEX" expression="" defaultValue="i" alwaysStopAt="true" />
+        <variable name="LIMIT" expression="" defaultValue="n" alwaysStopAt="true" />
+        <context>
+            <option name="cpp" value="true" />
+        </context>
+    </template>
+
+    <template name="while" value="while($VAR$ &lt; $LIMIT$) {
+    $CURSOR$
+}" description="Traditional while loop" toReformat="true" toShortenFQNames="true">
+        <variable name="VAR" expression="" defaultValue="i" alwaysStopAt="true" />
+        <variable name="LIMIT" expression="" defaultValue="n" alwaysStopAt="true" />
+        <context>
+            <option name="cpp" value="true" />
+        </context>
+    </template>
+
+    <!--Logic-->
+    <template name="if" value="if ($CONDITION$) {
+$END$
+}" description="Create an if statement">
+        <variable name="CONDITION" expression="" alwaysStopAt="true" />
+        <context>
+            <option name="cpp" value="true" />
+        </context>
+    </template>
+
+    <template name="ife" value="if ($CONDITION$) {
+$END$
+} else {
+$END$
+}" description="Create an if-else statement">
+        <variable name="CONDITION" expression="" alwaysStopAt="true" />
+        <context>
+            <option name="cpp" value="true" />
+        </context>
+    </template>
+
+    <template name="?" value="$EXPR1$ ? $EXPR2$ : $EXPR3$" description="Ternary operation">
+        <variable name="EXPR1" expression="" alwaysStopAt="true" />
+        <variable name="EXPR2" expression="" alwaysStopAt="true" />
+        <variable name="EXPR3" expression="" alwaysStopAt="true" />
+        <context>
+            <option name="cpp" value="true" />
+        </context>
+    </template>
+
+    <template name="ifele" value="if ($CONDITION1$) {
+$END$
+} else if ($CONDITION2$) {
+$END$
+} else {
+$END$
+}" description="Create an if-elif-else statement">
+        <variable name="CONDITION1" expression="" alwaysStopAt="true" />
+        <variable name="CONDITION2" expression="" alwaysStopAt="true" />
+        <context>
+            <option name="cpp" value="true" />
+        </context>
+    </template>
+
+    <!--Maps and Sets-->
+    <template name="oset" value="$INCLUDE$
+std::set&lt;$TYPE$&gt; $VARIABLE_NAME$;" description="Create std::set with conditional header" toReformat="true" toShortenFQNames="true">
+        <variable name="TYPE" expression="" defaultValue="int" alwaysStopAt="true" />
+        <variable name="VARIABLE_NAME" expression="" defaultValue="set" alwaysStopAt="true" />
+        <variable name="INCLUDE" expression="completeSmartWithoutSemicolon()" defaultValue="#include &lt;set&gt;" alwaysStopAt="false" />
+        <context>
+            <option name="cpp" value="true" />
+        </context>
+    </template>
+
+    <template name="uset" value="$INCLUDE1$
+    $INCLUDE2$
+std::unordered_set&lt;$TYPE$&gt; $VARIABLE_NAME$;" description="Create std::unordered_set with conditional header" toReformat="true" toShortenFQNames="true">
+        <variable name="TYPE" expression="" defaultValue="int" alwaysStopAt="true" />
+        <variable name="VARIABLE_NAME" expression="" defaultValue="set" alwaysStopAt="true" />
+        <variable name="INCLUDE" expression="completeSmartWithoutSemicolon()" defaultValue="#include &lt;unordered_set&gt;" alwaysStopAt="false" />
+        <context>
+            <option name="cpp" value="true" />
+        </context>
+    </template>
+
+    <template name="omap" value="$INCLUDE1$
+$INCLUDE2$
+std::map&lt;$TYPE1$, $TYPE2$&gt; $VARIABLE_NAME$;" description="Create std::unordered_map with conditional header" toReformat="true" toShortenFQNames="true">
+        <variable name="TYPE1" expression="" defaultValue="std::string" alwaysStopAt="true" />
+        <variable name="TYPE2" expression="" defaultValue="std::string" alwaysStopAt="true" />
+        <variable name="VARIABLE_NAME" expression="" defaultValue="map" alwaysStopAt="true" />
+        <variable name="INCLUDE1" expression="completeSmartWithoutSemicolon()" defaultValue="#include &lt;map&gt;" alwaysStopAt="false" />
+        <variable name="INCLUDE2" expression="completeSmartWithoutSemicolon()" defaultValue="#include &lt;string&gt;" alwaysStopAt="false" />
+        <context>
+            <option name="cpp" value="true" />
+        </context>
+    </template>
+
+    <template name="umap" value="$INCLUDE1$
+$INCLUDE2$
+std::unordered_map&lt;$TYPE1$, $TYPE2$&gt; $VARIABLE_NAME$;" description="Create std::unordered_map with conditional header" toReformat="true" toShortenFQNames="true">
+        <variable name="TYPE1" expression="" defaultValue="std::string" alwaysStopAt="true" />
+        <variable name="TYPE2" expression="" defaultValue="std::string" alwaysStopAt="true" />
+        <variable name="VARIABLE_NAME" expression="" defaultValue="map" alwaysStopAt="true" />
+        <variable name="INCLUDE1" expression="completeSmartWithoutSemicolon()" defaultValue="#include &lt;unordered_map&gt;" alwaysStopAt="false" />
+        <variable name="INCLUDE2" expression="completeSmartWithoutSemicolon()" defaultValue="#include &lt;string&gt;" alwaysStopAt="false" />
+        <context>
+            <option name="cpp" value="true" />
+        </context>
+    </template>
+
+    <!--List,Stacks & Quenes-->
+    <template name="q" value="$INCLUDE$
+std::quene&lt;$TYPE$&gt;" description="Create std::quene with conditional header" toReformat="true" toShortenFQNames="true">
+        <variable name="TYPE" expression="" defaultValue="int" alwaysStopAt="true" />
+        <variable name="INCLUDE" expression="completeSmartWithoutSemicolon()" defaultValue="#include &lt;quene&gt;" alwaysStopAt="false" />
+        <context>
+            <option name="cpp" value="true" />
+        </context>
+    </template>
+
+    <template name="stk" value="$INCLUDE$
+std::stack&lt;$TYPE$&gt;" description="Create std::stack with conditional header" toReformat="true" toShortenFQNames="true">
+        <variable name="TYPE" expression="" defaultValue="int" alwaysStopAt="true" />
+        <variable name="INCLUDE" expression="completeSmartWithoutSemicolon()" defaultValue="#include &lt;stack&gt;" alwaysStopAt="false" />
+        <context>
+            <option name="cpp" value="true" />
+        </context>
+    </template>
+
+    <template name="fll" value="$INCLUDE$
+std::forward_list&lt;$TYPE$&gt;" description="Create std::forward_list with conditional header" toReformat="true" toShortenFQNames="true">
+        <variable name="TYPE" expression="" defaultValue="int" alwaysStopAt="true" />
+        <variable name="INCLUDE" expression="completeSmartWithoutSemicolon()" defaultValue="#include &lt;forward_list&gt;" alwaysStopAt="false" />
+        <context>
+            <option name="cpp" value="true" />
+        </context>
+    </template>
+
+    <template name="dll" value="$INCLUDE$
+std::list&lt;$TYPE$&gt;" description="Create std::list (doubly linked list) with conditional header" toReformat="true" toShortenFQNames="true">
+        <variable name="TYPE" expression="" defaultValue="int" alwaysStopAt="true" />
+        <variable name="INCLUDE" expression="completeSmartWithoutSemicolon()" defaultValue="#include &lt;list&gt;" alwaysStopAt="false" />
+        <context>
+            <option name="cpp" value="true" />
+        </context>
+    </template>
+
+    <template name="maxq" value="$INCLUDE$
+std::priority_queue&lt;$TYPE$&gt;" description="Create std::priority_queue with conditional header" toReformat="true" toShortenFQNames="true">
+        <variable name="TYPE" expression="" defaultValue="int" alwaysStopAt="true" />
+        <variable name="INCLUDE" expression="completeSmartWithoutSemicolon()" defaultValue="#include &lt;queue&gt;" alwaysStopAt="false" />
+        <context>
+            <option name="cpp" value="true" />
+        </context>
+    </template>
+
+    <template name="dq" value="$INCLUDE$
+std::deque&lt;$TYPE$&gt;" description="Create std::deque with conditional header" toReformat="true" toShortenFQNames="true">
+        <variable name="TYPE" expression="" defaultValue="int" alwaysStopAt="true" />
+        <variable name="INCLUDE" expression="completeSmartWithoutSemicolon()" defaultValue="#include &lt;deque&gt;" alwaysStopAt="false" />
+        <context>
+            <option name="cpp" value="true" />
+        </context>
+    </template>
+
+</templateSet>
